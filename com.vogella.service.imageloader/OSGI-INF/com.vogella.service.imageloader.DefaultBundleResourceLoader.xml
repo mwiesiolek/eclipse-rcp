@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.vogella.service.imageloader.DefaultBundleResourceLoader">
+   <service>
+      <provide interface="com.vogella.service.imageloader.BundleResourceLoader"/>
+   </service>
+   <implementation class="com.vogella.service.imageloader.DefaultBundleResourceLoader"/>
+</scr:component>
