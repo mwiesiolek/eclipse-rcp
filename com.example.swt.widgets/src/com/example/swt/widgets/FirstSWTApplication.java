@@ -29,9 +29,13 @@ public class FirstSWTApplication {
 		text.setBackground(display.getSystemColor(SWT.COLOR_BLACK));
 		text.setForeground(display.getSystemColor(SWT.COLOR_WHITE));
 
+		Checkbox checkbox = new Checkbox(shell, SWT.CHECK);
+		checkbox.setText("Test");
+		
 		// set widgets size to their preferred size
 		text.pack();
 		label.pack();
+		checkbox.pack();
 
 		Button button = new Button(shell, SWT.PUSH);
 		button.setText("Click me!");
