@@ -31,6 +31,8 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_bJo-cFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.remove" command="_RycQcFSaEemDF5ITcXNJYA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_dXU-AFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.menuseparator.2"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_eICCMFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.test" command="_g3gLEFSaEemDF5ITcXNJYA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_pg0o8FSoEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.menuseparator.3"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_qKgfIFSoEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.copy" command="_NHdOYFSiEemDF5ITcXNJYA"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">

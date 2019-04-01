@@ -26,7 +26,6 @@ public class TodoItemCopyHandler {
     @Execute
     public void execute(Logger log, Display display,
             @Optional @Named(IServiceConstants.ACTIVE_SELECTION) List<Todo> selectedTodos) {
-    	log.info("TEST");
         if (selectedTodos == null || selectedTodos.isEmpty()) {
             log.info("There are no selected todos");
             return;
