@@ -5,6 +5,6 @@ import org.eclipse.e4.core.di.annotations.Execute;
 public class RemoveTodoHandler {
 	@Execute
 	public void execute() {
-		System.out.println((this.getClass().getSimpleName() + " called"));
+		System.out.println("Soon, I will really delete your todo");
 	}
 }

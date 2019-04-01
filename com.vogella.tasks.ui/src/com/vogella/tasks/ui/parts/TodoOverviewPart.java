@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.fieldassist.ContentProposalAdapter;
@@ -49,7 +50,7 @@ public class TodoOverviewPart {
 	protected String searchString = "";
 
 	@PostConstruct
-	public void createControls(Composite parent) {
+	public void createControls(Composite parent, EMenuService menuService) {
 		parent.setLayout(new GridLayout(1, false));
 
 		Button btnLoadData = new Button(parent, SWT.PUSH);
@@ -203,6 +204,9 @@ public class TodoOverviewPart {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
+
+		// register context menu on the table
+		menuService.registerContextMenu(viewer.getControl(), "com.vogella.tasks.ui.popupmenu.table");
 	}
 
 	@Focus

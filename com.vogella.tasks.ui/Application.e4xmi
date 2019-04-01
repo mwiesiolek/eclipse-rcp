@@ -3,7 +3,11 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_m79g0FDJEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.trimmedwindow.taskmanager" label="Task Manager">
     <children xsi:type="basic:PartSashContainer" xmi:id="_g24jgFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.main" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_tvf0sFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.0">
-        <children xsi:type="basic:Part" xmi:id="_9eAU8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.todooverview" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoOverviewPart" label="Overview"/>
+        <children xsi:type="basic:Part" xmi:id="_9eAU8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.todooverview" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoOverviewPart" label="Overview">
+          <menus xsi:type="menu:PopupMenu" xmi:id="_cATrQFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.popupmenu.table">
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_fK27sFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.remove" command="_RycQcFSaEemDF5ITcXNJYA"/>
+          </menus>
+        </children>
       </children>
       <children xsi:type="basic:PartSashContainer" xmi:id="_wNNNQFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.0">
         <children xsi:type="basic:PartStack" xmi:id="_yOUJYFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.1">
@@ -28,12 +32,25 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_eICCMFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.test" command="_g3gLEFSaEemDF5ITcXNJYA"/>
       </children>
     </mainMenu>
+    <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">
+      <children xsi:type="menu:ToolBar" xmi:id="_mfzooFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_nFl2QFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledtoolitem.save" command="_L2oZUFSaEemDF5ITcXNJYA"/>
+      </children>
+    </trimBars>
   </children>
   <handlers xmi:id="_FGDA4FSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.saveall" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.SaveAllHandler" command="_L2oZUFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_S0twUFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.exit" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.ExitHandler" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_WMuN8FSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.new" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.NewTodoHandler" command="_P7NpEFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_ZL8_MFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.remove" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.RemoveTodoHandler" command="_RycQcFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_cD2ZYFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.test" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TestHandler" command="_g3gLEFSaEemDF5ITcXNJYA"/>
+  <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
+    <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
+    <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
+  </bindingTables>
+  <rootContext xmi:id="_00kuwFSgEemDF5ITcXNJYA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="Windows and Dialogs" description="Windows and Dialogs">
+    <children xmi:id="_4pejwFSgEemDF5ITcXNJYA" elementId="org.eclipse.ui.contexts.dialog" name="Dialogs" description="Dialogs"/>
+    <children xmi:id="_7FxnEFSgEemDF5ITcXNJYA" elementId="org.eclipse.ui.contexts.window" name="Windows" description="Windows"/>
+  </rootContext>
   <commands xmi:id="_L2oZUFSaEemDF5ITcXNJYA" elementId="org.eclipse.ui.file.saveAll" commandName="Save"/>
   <commands xmi:id="_OUgJ8FSaEemDF5ITcXNJYA" elementId="org.eclipse.ui.file.exit" commandName="Exit"/>
   <commands xmi:id="_P7NpEFSaEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.new" commandName="New"/>
