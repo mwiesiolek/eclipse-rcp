@@ -24,6 +24,8 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Kb2ygFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.save" command="_L2oZUFSaEemDF5ITcXNJYA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_UwiuYFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_VO4QMFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.exit" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_RVx5sFloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.menuseparator.4"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_R5EM8FloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.login" command="_UlLN4FloEemAuIHvLBaCYg"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_5juXwFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.menu.edit" label="Edit">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XNggEFScEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.new" command="_P7NpEFSaEemDF5ITcXNJYA"/>
@@ -50,6 +52,7 @@
   <handlers xmi:id="_ZL8_MFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.remove" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.RemoveTodoHandler" command="_RycQcFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_cD2ZYFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.test" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TestHandler" command="_g3gLEFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_XMvHAFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.theme.switch" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.ThemeSwitchHandler" command="_UVU1AFldEemAuIHvLBaCYg"/>
+  <handlers xmi:id="_Waw2gFloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.login" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.EnterCredentialsHandler" command="_UlLN4FloEemAuIHvLBaCYg"/>
   <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
     <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
     <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
@@ -69,6 +72,7 @@
   <commands xmi:id="_g3gLEFSaEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.test" commandName="For testing"/>
   <commands xmi:id="_NHdOYFSiEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.copy" commandName="Copy"/>
   <commands xmi:id="_UVU1AFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.theme.switch" commandName="Theme switch"/>
+  <commands xmi:id="_UlLN4FloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.login" commandName="Login"/>
   <addons xmi:id="_iKCC4VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iKCC4lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iKCC41DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

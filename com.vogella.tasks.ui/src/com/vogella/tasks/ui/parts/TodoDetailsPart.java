@@ -30,6 +30,14 @@ public class TodoDetailsPart {
 	// define a new field
 	private java.util.Optional<Todo> todo = java.util.Optional.ofNullable(null);
 
+	public TodoDetailsPart() {
+		
+	}
+	
+	public TodoDetailsPart(Todo todo) {
+		this.todo = java.util.Optional.ofNullable(todo);
+	}
+	
 	@PostConstruct
 	public void createControls(Composite parent) {
 		parent.setLayout(new GridLayout(2, false));
@@ -40,12 +48,25 @@ public class TodoDetailsPart {
 		txtSummary = new Text(parent, SWT.BORDER);
 		txtSummary.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
+		txtSummary.addModifyListener(e -> { // 
+		    if (todo.isPresent()){
+		        todo.get().setSummary(txtSummary.getText());
+		    }
+
+		});
+		
 		Label lblDescription = new Label(parent, SWT.NONE);
 		lblDescription.setText("Description");
 
 		txtDescription = new Text(parent, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		txtDescription.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
+		txtDescription.addModifyListener(e -> { // 
+		    if (todo.isPresent()){
+		        todo.get().setDescription(txtDescription.getText());
+		    }
+		});
+		
 		Label lblDueDate = new Label(parent, SWT.NONE);
 		lblDueDate.setText("Due Date");
 
