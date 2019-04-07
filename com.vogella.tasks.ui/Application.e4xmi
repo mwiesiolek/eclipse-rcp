@@ -3,7 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_m79g0FDJEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.trimmedwindow.taskmanager" label="Task Manager">
     <children xsi:type="basic:PartSashContainer" xmi:id="_g24jgFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.main" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_tvf0sFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.0">
-        <children xsi:type="basic:Part" xmi:id="_9eAU8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.todooverview" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoOverviewPart" label="Overview" bindingContexts="_4eGIQFSiEemDF5ITcXNJYA">
+        <children xsi:type="basic:Part" xmi:id="_9eAU8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.todooverview" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoOverviewPart" label="Overview" iconURI="platform:/plugin/com.vogella.tasks.ui/icons/icon.png" bindingContexts="_4eGIQFSiEemDF5ITcXNJYA">
           <handlers xmi:id="__yVVcFSjEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
           <menus xsi:type="menu:PopupMenu" xmi:id="_cATrQFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.popupmenu.table">
             <children xsi:type="menu:HandledMenuItem" xmi:id="_fK27sFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.remove" command="_RycQcFSaEemDF5ITcXNJYA"/>
