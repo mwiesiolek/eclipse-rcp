@@ -34,6 +34,9 @@
         <children xsi:type="menu:MenuSeparator" xmi:id="_pg0o8FSoEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.menuseparator.3"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_qKgfIFSoEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.copy" command="_NHdOYFSiEemDF5ITcXNJYA"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_iG35UFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.menu.theme.switch" label="View">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_jvXhIFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.theme.switch" command="_UVU1AFldEemAuIHvLBaCYg"/>
+      </children>
     </mainMenu>
     <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_mfzooFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.toolbar.0">
@@ -46,6 +49,7 @@
   <handlers xmi:id="_WMuN8FSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.new" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.NewTodoHandler" command="_P7NpEFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_ZL8_MFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.remove" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.RemoveTodoHandler" command="_RycQcFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_cD2ZYFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.test" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TestHandler" command="_g3gLEFSaEemDF5ITcXNJYA"/>
+  <handlers xmi:id="_XMvHAFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.theme.switch" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.ThemeSwitchHandler" command="_UVU1AFldEemAuIHvLBaCYg"/>
   <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
     <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
     <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
@@ -64,6 +68,7 @@
   <commands xmi:id="_RycQcFSaEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.remove" commandName="Remove"/>
   <commands xmi:id="_g3gLEFSaEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.test" commandName="For testing"/>
   <commands xmi:id="_NHdOYFSiEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.copy" commandName="Copy"/>
+  <commands xmi:id="_UVU1AFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.theme.switch" commandName="Theme switch"/>
   <addons xmi:id="_iKCC4VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iKCC4lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iKCC41DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
