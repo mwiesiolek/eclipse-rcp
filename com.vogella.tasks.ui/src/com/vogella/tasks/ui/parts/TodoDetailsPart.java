@@ -1,17 +1,24 @@
 package com.vogella.tasks.ui.parts;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.beans.BeanProperties;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
@@ -22,109 +29,116 @@ import com.vogella.tasks.model.Todo;
 
 public class TodoDetailsPart {
 
-	private Text txtSummary;
-	private Text txtDescription;
-	private DateTime dateTime;
-	private Button btnDone;
+    private Text txtSummary;
+    private Text txtDescription;
+    private Button btnDone;
+    private DateTime dateTime;
 
-	// define a new field
-	private java.util.Optional<Todo> todo = java.util.Optional.ofNullable(null);
+    // define an initially empty todo as field
+    private java.util.Optional<Todo> todo = java.util.Optional.empty();
 
-	public TodoDetailsPart() {
-		
-	}
-	
-	public TodoDetailsPart(Todo todo) {
-		this.todo = java.util.Optional.ofNullable(todo);
-	}
-	
-	@PostConstruct
-	public void createControls(Composite parent) {
-		parent.setLayout(new GridLayout(2, false));
+    // observable placeholder for a todo
+    private WritableValue<Todo> observableTodo = new WritableValue<>();
 
-		Label lblSummary = new Label(parent, SWT.NONE);
-		lblSummary.setText("Summary");
+    private DataBindingContext dbc;
 
-		txtSummary = new Text(parent, SWT.BORDER);
-		txtSummary.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+    public TodoDetailsPart(Todo todo) {
+    	this.todo = java.util.Optional.ofNullable(todo);
+    }
+    
+    @PostConstruct
+    public void createControls(Composite parent) {
 
-		txtSummary.addModifyListener(e -> { // 
-		    if (todo.isPresent()){
-		        todo.get().setSummary(txtSummary.getText());
-		    }
+        Label lblSummary = new Label(parent, SWT.NONE);
+        lblSummary.setText("Summary");
 
-		});
-		
-		Label lblDescription = new Label(parent, SWT.NONE);
-		lblDescription.setText("Description");
+        txtSummary = new Text(parent, SWT.BORDER);
 
-		txtDescription = new Text(parent, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
-		txtDescription.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+        Label lblDescription = new Label(parent, SWT.NONE);
+        lblDescription.setText("Description");
 
-		txtDescription.addModifyListener(e -> { // 
-		    if (todo.isPresent()){
-		        todo.get().setDescription(txtDescription.getText());
-		    }
-		});
-		
-		Label lblDueDate = new Label(parent, SWT.NONE);
-		lblDueDate.setText("Due Date");
+        txtDescription = new Text(parent, SWT.BORDER | SWT.MULTI);
 
-		dateTime = new DateTime(parent, SWT.BORDER);
-		dateTime.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		new Label(parent, SWT.NONE);
+        Label lblDueDate = new Label(parent, SWT.NONE);
+        lblDueDate.setText("Due Date");
 
-		btnDone = new Button(parent, SWT.CHECK);
-		btnDone.setText("Done");
+        dateTime = new DateTime(parent, SWT.BORDER);
+        new Label(parent, SWT.NONE);
 
-		updateUserInterface(todo);
-	}
+        btnDone = new Button(parent, SWT.CHECK);
+        btnDone.setText("Done");
 
-	@Inject
-	public void setTodos(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) List<Todo> todos) {
-		if (todos == null || todos.isEmpty()) {
-			this.todo = java.util.Optional.empty();
-		} else {
-			this.todo = java.util.Optional.of(todos.get(0));
-		}
-		// Remember the todo as field update the user interface
-		updateUserInterface(this.todo);
-	}
+        bindData();
 
-	// allows to disable/ enable the user interface fields
-	// if no todo is set
-	private void enableUserInterface(boolean enabled) {
-		if (txtSummary != null && !txtSummary.isDisposed()) {
-			txtSummary.setEnabled(enabled);
-			txtDescription.setEnabled(enabled);
-			dateTime.setEnabled(enabled);
-			btnDone.setEnabled(enabled);
-		}
-	}
+        updateUserInterface(todo);
 
-	private void updateUserInterface(java.util.Optional<Todo> todo) {
-	    // check if Todo is present
-	    if (!todo.isPresent()) {
-	        enableUserInterface(false);
-	        return; // nothing left to do
-	    }
+        GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(parent);
+    }
 
-	    enableUserInterface(true);
-	    // the following check ensures that the user interface is available,
-	    // it assumes that you have a text widget called "txtSummary"
-	    if (txtSummary != null && !txtSummary.isDisposed()) {
-	        enableUserInterface(true);
-	        txtSummary.setText(todo.get().getSummary());
-	        txtDescription.setText(todo.get().getDescription());
-	        // more code to fill the widgets with data from your Todo object
-	        // more code
-	        // ....
-	        // ....
-	    }
-	}
+    @SuppressWarnings("unchecked")
+    private void bindData() {
+        // this assumes that widget field is called "summary"
+        if (txtSummary != null && !txtSummary.isDisposed()) {
 
-	@Focus
-	public void setFocus() {
-		txtSummary.setFocus();
-	}
+            dbc = new DataBindingContext();
+
+            Map<String, IObservableValue<?>> fields = new HashMap<>();
+            fields.put(Todo.FIELD_SUMMARY, WidgetProperties.text(SWT.Modify).observe(txtSummary));
+            fields.put(Todo.FIELD_DESCRIPTION, WidgetProperties.text(SWT.Modify).observe(txtDescription));
+            fields.put(Todo.FIELD_DUEDATE, WidgetProperties.selection().observe(dateTime));
+            fields.put(Todo.FIELD_DONE, WidgetProperties.selection().observe(btnDone));
+            fields.forEach((k, v) -> dbc.bindValue(v, BeanProperties.value(k).observeDetail(observableTodo)));
+        }
+    }
+
+    @Inject
+    public void setTodos(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) List<Todo> todos) {
+        if (todos == null || todos.isEmpty()) {
+            this.todo = java.util.Optional.empty();
+        } else {
+            this.todo = java.util.Optional.of(todos.get(0));
+        }
+        // Remember the todo as field
+        // update the user interface
+        updateUserInterface(this.todo);
+    }
+
+    // allows to disable/ enable the user interface fields
+    // if no todo is set
+    private void enableUserInterface(boolean enabled) {
+        if (txtSummary != null && !txtSummary.isDisposed()) {
+            txtSummary.setEnabled(enabled);
+            txtDescription.setEnabled(enabled);
+            dateTime.setEnabled(enabled);
+            btnDone.setEnabled(enabled);
+        }
+    }
+
+    private void updateUserInterface(java.util.Optional<Todo> todo) {
+
+        // check if Todo is present
+        if (todo.isPresent()) {
+            enableUserInterface(true);
+        } else {
+            enableUserInterface(false);
+            return;
+        }
+
+        // Check if the user interface is available
+        // assume you have a field called "summary"
+        // for a widget
+        if (txtSummary != null && !txtSummary.isDisposed()) {
+            this.observableTodo.setValue(todo.get());
+        }
+    }
+
+    @Focus
+    public void onFocus() {
+        txtSummary.setFocus();
+    }
+
+    @PreDestroy
+    public void dispose() {
+        dbc.dispose();
+    }
 }
