@@ -42,6 +42,10 @@ public class TodoDetailsPart {
 
     private DataBindingContext dbc;
 
+    public TodoDetailsPart() {
+    	
+    }
+    
     public TodoDetailsPart(Todo todo) {
     	this.todo = java.util.Optional.ofNullable(todo);
     }

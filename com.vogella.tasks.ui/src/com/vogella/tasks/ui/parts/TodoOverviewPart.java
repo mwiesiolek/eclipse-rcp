@@ -65,8 +65,6 @@ public class TodoOverviewPart {
         });
         btnLoadData.setText("Load Data");
 
-        searchStuff(parent, menuService);
-
         viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
         Table table = viewer.getTable();
         table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -83,7 +81,7 @@ public class TodoOverviewPart {
         column.getColumn().setWidth(100);
         column.getColumn().setText("Description");
 
-        // more code for your table, e.g. filter, etc.
+        searchStuff(parent, menuService);
 
         // use data binding to bind the viewer
         writableList = new WritableList<>();
