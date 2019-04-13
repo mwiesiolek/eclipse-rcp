@@ -9,6 +9,7 @@ import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.EMenuService;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.databinding.viewers.ViewerSupport;
@@ -17,6 +18,9 @@ import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
 import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
@@ -44,8 +48,11 @@ import com.vogella.tasks.model.Todo;
 public class TodoOverviewPart {
 
     @Inject
-    TodoService todoService;
+    private TodoService todoService;
 
+    @Inject 
+    private ESelectionService service;
+    
     private Button btnLoadData;
     private TableViewer viewer;
 
@@ -81,6 +88,15 @@ public class TodoOverviewPart {
         column.getColumn().setWidth(100);
         column.getColumn().setText("Description");
 
+     // after the viewer is instantiated
+        viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+        @Override
+        public void selectionChanged(SelectionChangedEvent event) {
+            IStructuredSelection selection =  viewer.getStructuredSelection();
+            service.setSelection(selection.toList());
+            }
+        });
+        
         searchStuff(parent, menuService);
 
         // use data binding to bind the viewer
