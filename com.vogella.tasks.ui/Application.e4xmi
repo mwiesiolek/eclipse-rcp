@@ -9,6 +9,7 @@
               <handlers xmi:id="__yVVcFSjEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
               <menus xsi:type="menu:PopupMenu" xmi:id="_cATrQFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.popupmenu.table">
                 <children xsi:type="menu:HandledMenuItem" xmi:id="_fK27sFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.remove" command="_RycQcFSaEemDF5ITcXNJYA"/>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_2mhr0F4oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.open.editor" label="Open in editor" command="_lhT3UF4oEemAuIHvLBaCYg"/>
               </menus>
             </children>
           </children>
@@ -16,7 +17,7 @@
             <children xsi:type="basic:PartStack" xmi:id="_yOUJYFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.1">
               <children xsi:type="basic:Part" xmi:id="_-u7xUFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.tododetails" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoDetailsPart" label="Details"/>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_yr2Z8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.2">
+            <children xsi:type="basic:PartStack" xmi:id="_yr2Z8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.bottom">
               <children xsi:type="basic:Part" xmi:id="_Bp01IFDLEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.playground" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.PlaygroundPart" label="Playground"/>
             </children>
           </children>
@@ -72,6 +73,7 @@
   <handlers xmi:id="_Waw2gFloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.login" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.EnterCredentialsHandler" command="_UlLN4FloEemAuIHvLBaCYg"/>
   <handlers xmi:id="_nTurQF3oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
   <handlers xmi:id="_p7K8sF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.swtch.perspective" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.PerspectiveSwitchHandler" command="_lc-6IF3qEemAuIHvLBaCYg"/>
+  <handlers xmi:id="_oegoQF4oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.open.editor" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.OpenEditorHandler" command="_lhT3UF4oEemAuIHvLBaCYg"/>
   <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
     <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
     <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
@@ -84,6 +86,9 @@
     <children xmi:id="_7FxnEFSgEemDF5ITcXNJYA" elementId="org.eclipse.ui.contexts.window" name="Windows" description="Windows"/>
   </rootContext>
   <rootContext xmi:id="_4eGIQFSiEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingcontext.todos" name="todos"/>
+  <descriptors xmi:id="_Bwt24F4qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.partdescriptor.editor" label="Editor part for" allowMultiple="true" closeable="true" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.EditorPart">
+    <tags>removeOnHide</tags>
+  </descriptors>
   <commands xmi:id="_L2oZUFSaEemDF5ITcXNJYA" elementId="org.eclipse.ui.file.saveAll" commandName="Save"/>
   <commands xmi:id="_OUgJ8FSaEemDF5ITcXNJYA" elementId="org.eclipse.ui.file.exit" commandName="Exit"/>
   <commands xmi:id="_P7NpEFSaEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.new" commandName="New"/>
@@ -95,6 +100,7 @@
   <commands xmi:id="_lc-6IF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.switch.perspective" commandName="Switch perspective">
     <parameters xmi:id="_ml7CsF3rEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.commandparameter.perspective" name="Main perspective"/>
   </commands>
+  <commands xmi:id="_lhT3UF4oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.open.editor" commandName="Open editor"/>
   <addons xmi:id="_iKCC4VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iKCC4lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iKCC41DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
