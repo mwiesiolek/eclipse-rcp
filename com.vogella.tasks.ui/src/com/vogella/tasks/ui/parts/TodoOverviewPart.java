@@ -8,11 +8,15 @@ import javax.inject.Inject;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EMenuService;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.databinding.viewers.ViewerSupport;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.fieldassist.ContentProposalAdapter;
 import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
@@ -39,6 +43,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
@@ -53,6 +58,12 @@ public class TodoOverviewPart {
     @Inject 
     private ESelectionService service;
     
+    @Inject
+    private MApplication application;
+    
+    @Inject
+    private EModelService eModelService;
+    
     private Button btnLoadData;
     private TableViewer viewer;
 
@@ -60,7 +71,7 @@ public class TodoOverviewPart {
     private WritableList<Todo> writableList;
 
     @PostConstruct
-    public void createControls(Composite parent, EMenuService menuService) {
+    public void createControls(Composite parent, EMenuService menuService, Shell shell) {
         parent.setLayout(new GridLayout(1, false));
 
         btnLoadData = new Button(parent, SWT.PUSH);
@@ -88,12 +99,21 @@ public class TodoOverviewPart {
         column.getColumn().setWidth(100);
         column.getColumn().setText("Description");
 
-     // after the viewer is instantiated
+        // after the viewer is instantiated
         viewer.addSelectionChangedListener(new ISelectionChangedListener() {
         @Override
         public void selectionChanged(SelectionChangedEvent event) {
-            IStructuredSelection selection =  viewer.getStructuredSelection();
-            service.setSelection(selection.toList());
+	            IStructuredSelection selection =  viewer.getStructuredSelection();
+	            service.setSelection(selection.toList());
+	            
+	            List<MPart> parts = eModelService.findElements(application, null, MPart.class, null);
+	            boolean isDirty = parts.stream().anyMatch(p -> p.isDirty());
+	            if(isDirty) {
+	            	boolean result = MessageDialog.openConfirm(shell, "Confirm", "Some unsaved changes have been detected. Do you want to discard them?");
+	            	if(result) {
+	            		parts.forEach(p -> p.setDirty(false));
+	            	}
+	            }
             }
         });
         
@@ -126,7 +146,6 @@ public class TodoOverviewPart {
             if (e.stateMask == SWT.CTRL && e.keyCode == 'a') {
                 viewer.setSelection(new StructuredSelection((List) viewer.getInput()));
             }
-
         }));
 
         Text search = new Text(parent, SWT.SEARCH | SWT.CANCEL | SWT.ICON_SEARCH);
