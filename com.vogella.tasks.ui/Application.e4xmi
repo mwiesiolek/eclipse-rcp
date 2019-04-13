@@ -4,7 +4,7 @@
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_iYqC8F3pEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_lD9LkF3pEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.tasksperspective">
         <children xsi:type="basic:PartSashContainer" xmi:id="_g24jgFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.main" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_tvf0sFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.0">
+          <children xsi:type="basic:PartStack" xmi:id="_tvf0sFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.overview">
             <children xsi:type="basic:Part" xmi:id="_9eAU8FDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.todooverview" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoOverviewPart" label="Overview" iconURI="platform:/plugin/com.vogella.tasks.ui/icons/icon.png" bindingContexts="_4eGIQFSiEemDF5ITcXNJYA">
               <handlers xmi:id="__yVVcFSjEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
               <menus xsi:type="menu:PopupMenu" xmi:id="_cATrQFSdEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.popupmenu.table">
@@ -13,7 +13,7 @@
               </menus>
             </children>
           </children>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_wNNNQFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.0">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_wNNNQFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partsashcontainer.right">
             <children xsi:type="basic:PartStack" xmi:id="_yOUJYFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.partstack.1">
               <children xsi:type="basic:Part" xmi:id="_-u7xUFDKEemZivHG1Xai_A" elementId="com.vogella.tasks.ui.part.tododetails" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.parts.TodoDetailsPart" label="Details"/>
             </children>
@@ -49,13 +49,14 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_qKgfIFSoEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledmenuitem.copy" command="_NHdOYFSiEemDF5ITcXNJYA"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_iG35UFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.menu.theme.switch" label="View">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_jvXhIFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.theme.switch" command="_UVU1AFldEemAuIHvLBaCYg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_jvXhIFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.theme.switch" label="Theme switch" command="_UVU1AFldEemAuIHvLBaCYg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_eS6gIF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.switch.perspective.main" label="Main perspective" command="_lc-6IF3qEemAuIHvLBaCYg">
           <parameters xmi:id="_aaQXEF3rEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.parameter.main" name="com.vogella.tasks.ui.commandparameter.perspective" value="com.vogella.tasks.ui.tasksperspective"/>
         </children>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_TcA9IF3sEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.switch.perspective.manager" label="Manager perspective" command="_lc-6IF3qEemAuIHvLBaCYg">
           <parameters xmi:id="_ZXrDQF3sEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.parameter.manager" name="com.vogella.tasks.ui.commandparameter.perspective" value="com.vogella.tasks.ui.manager"/>
         </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_5ZAy0F4uEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.fixcontainersize" label="Fix container size"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">
@@ -74,6 +75,7 @@
   <handlers xmi:id="_nTurQF3oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
   <handlers xmi:id="_p7K8sF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.swtch.perspective" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.PerspectiveSwitchHandler" command="_lc-6IF3qEemAuIHvLBaCYg"/>
   <handlers xmi:id="_oegoQF4oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.open.editor" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.OpenEditorHandler" command="_lhT3UF4oEemAuIHvLBaCYg"/>
+  <handlers xmi:id="_-GengF4uEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.0" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.ContainerSizeHandler" command="_8U4uEF4uEemAuIHvLBaCYg"/>
   <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
     <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
     <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
@@ -101,6 +103,7 @@
     <parameters xmi:id="_ml7CsF3rEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.commandparameter.perspective" name="Main perspective"/>
   </commands>
   <commands xmi:id="_lhT3UF4oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.open.editor" commandName="Open editor"/>
+  <commands xmi:id="_8U4uEF4uEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.containersize" commandName="Container size"/>
   <addons xmi:id="_iKCC4VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iKCC4lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iKCC41DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
