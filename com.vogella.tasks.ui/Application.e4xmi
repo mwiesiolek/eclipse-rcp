@@ -53,6 +53,7 @@
   <handlers xmi:id="_cD2ZYFSbEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handler.test" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TestHandler" command="_g3gLEFSaEemDF5ITcXNJYA"/>
   <handlers xmi:id="_XMvHAFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.theme.switch" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.ThemeSwitchHandler" command="_UVU1AFldEemAuIHvLBaCYg"/>
   <handlers xmi:id="_Waw2gFloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.login" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.EnterCredentialsHandler" command="_UlLN4FloEemAuIHvLBaCYg"/>
+  <handlers xmi:id="_nTurQF3oEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handler.copy" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.handlers.TodoItemCopyHandler" command="_NHdOYFSiEemDF5ITcXNJYA"/>
   <bindingTables xmi:id="_Bqc1AFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.bindingtable.windows.and.dialogs" bindingContext="_00kuwFSgEemDF5ITcXNJYA">
     <bindings xmi:id="_I-Rn8FShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.save" keySequence="M1+S" command="_L2oZUFSaEemDF5ITcXNJYA"/>
     <bindings xmi:id="_LgZmcFShEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.keybinding.exit" keySequence="M1+X" command="_OUgJ8FSaEemDF5ITcXNJYA"/>
