@@ -49,7 +49,12 @@
       </children>
       <children xsi:type="menu:Menu" xmi:id="_iG35UFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.menu.theme.switch" label="View">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_jvXhIFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.theme.switch" command="_UVU1AFldEemAuIHvLBaCYg"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_eS6gIF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.switch.perspective" label="Switch perspective" command="_lc-6IF3qEemAuIHvLBaCYg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_eS6gIF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.switch.perspective.main" label="Main perspective" command="_lc-6IF3qEemAuIHvLBaCYg">
+          <parameters xmi:id="_aaQXEF3rEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.parameter.main" name="com.vogella.tasks.ui.commandparameter.perspective" value="com.vogella.tasks.ui.tasksperspective"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TcA9IF3sEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.handledmenuitem.switch.perspective.manager" label="Manager perspective" command="_lc-6IF3qEemAuIHvLBaCYg">
+          <parameters xmi:id="_ZXrDQF3sEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.parameter.manager" name="com.vogella.tasks.ui.commandparameter.perspective" value="com.vogella.tasks.ui.manager"/>
+        </children>
       </children>
     </mainMenu>
     <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">
@@ -87,7 +92,9 @@
   <commands xmi:id="_NHdOYFSiEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.command.copy" commandName="Copy"/>
   <commands xmi:id="_UVU1AFldEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.theme.switch" commandName="Theme switch"/>
   <commands xmi:id="_UlLN4FloEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.login" commandName="Login"/>
-  <commands xmi:id="_lc-6IF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.switch.perspective" commandName="Switch perspective"/>
+  <commands xmi:id="_lc-6IF3qEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.command.switch.perspective" commandName="Switch perspective">
+    <parameters xmi:id="_ml7CsF3rEemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.commandparameter.perspective" name="Main perspective"/>
+  </commands>
   <addons xmi:id="_iKCC4VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_iKCC4lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_iKCC41DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
