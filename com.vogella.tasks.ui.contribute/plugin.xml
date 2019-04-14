@@ -8,6 +8,14 @@
             apply="always"
             uri="fragment.e4xmi">
       </fragment>
+      <processor
+            apply="always"
+            beforefragment="false"
+            class="com.vogella.tasks.ui.contribute.processors.MenuProcessor">
+         <element
+               id="org.eclipse.ui.file.menu.file">
+         </element>
+      </processor>
    </extension>
 
 </plugin>
