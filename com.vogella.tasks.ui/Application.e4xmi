@@ -113,4 +113,5 @@
   <addons xmi:id="_iKCC5lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
   <addons xmi:id="_iKCC51DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_soL7gF65EemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.addon.toolbars.visibility" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.addons.ToolbarsVisiblePerPerspectiveAddon"/>
+  <addons xmi:id="_DOlOsF68EemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.addon.windows.close" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.addons.WindowCloseListenerAddon"/>
 </application:Application>

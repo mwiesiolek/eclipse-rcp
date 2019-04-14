@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Contribute
+Bundle-SymbolicName: com.vogella.tasks.ui.contribute;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: VOGELLA
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.15.200",
+ org.eclipse.swt;bundle-version="3.110.0",
+ org.eclipse.jface;bundle-version="3.15.100",
+ org.eclipse.e4.core.di;bundle-version="1.7.100",
+ org.eclipse.e4.ui.workbench;bundle-version="1.9.0",
+ org.eclipse.e4.ui.di;bundle-version="1.2.500",
+ org.eclipse.e4.ui.model.workbench;bundle-version="2.1.300.v20190213-1544"
+Automatic-Module-Name: com.vogella.tasks.ui.contribute
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
