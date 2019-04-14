@@ -1,4 +1,4 @@
-package com.vogella.tasks.ui.addons;
+package com.vogella.e4.addon.exitconfirmation;
 
 import javax.inject.Inject;
 
