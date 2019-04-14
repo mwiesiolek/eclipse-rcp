@@ -16,6 +16,10 @@
                name="cssTheme"
                value="com.vogella.eclipse.css.default">
          </property>
+         <property
+               name="lifeCycleURI"
+               value="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.lifecycle.Manager">
+         </property>
       </product>
    </extension>
 
