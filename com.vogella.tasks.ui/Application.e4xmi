@@ -61,6 +61,7 @@
     </mainMenu>
     <trimBars xmi:id="_iKkGsFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_mfzooFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.toolbar.0">
+        <tags>perspective:com.vogella.tasks.ui.tasksperspective</tags>
         <children xsi:type="menu:HandledToolItem" xmi:id="_nFl2QFSgEemDF5ITcXNJYA" elementId="com.vogella.tasks.ui.handledtoolitem.save" command="_L2oZUFSaEemDF5ITcXNJYA"/>
       </children>
     </trimBars>
@@ -111,4 +112,5 @@
   <addons xmi:id="_iKCC5VDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_iKCC5lDJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
   <addons xmi:id="_iKCC51DJEemZivHG1Xai_A" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_soL7gF65EemAuIHvLBaCYg" elementId="com.vogella.tasks.ui.addon.toolbars.visibility" contributionURI="bundleclass://com.vogella.tasks.ui/com.vogella.tasks.ui.addons.ToolbarsVisiblePerPerspectiveAddon"/>
 </application:Application>
