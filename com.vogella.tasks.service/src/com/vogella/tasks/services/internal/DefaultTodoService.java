@@ -9,23 +9,24 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+
 import javax.inject.Inject;
+
 import org.eclipse.e4.core.services.events.IEventBroker;
-import org.osgi.service.component.annotations.Component;
 
 import com.vogella.tasks.events.MyEvent;
-import com.vogella.tasks.model.Todo;
 import com.vogella.tasks.model.TodoService;
+import com.vogella.tasks.model.Todo;
 
-@Component
 public class DefaultTodoService implements TodoService {
 
     private static AtomicInteger current = new AtomicInteger(1);
     private List<Todo> todos;
 
+    // use dependency injection in MyTodoServiceImpl
     @Inject
     private IEventBroker broker;
-    
+
     public DefaultTodoService() {
         todos = createInitialModel();
     }
@@ -54,14 +55,15 @@ public class DefaultTodoService implements TodoService {
         todo.setDone(newTodo.isDone());
         todo.setDueDate(newTodo.getDueDate());
 
-        if (!todoOptional.isPresent()) {
+        // send out events
+        if (todoOptional.isPresent()) {
+            broker.post(MyEvent.TOPIC_TODO_UPDATE,
+                    createEventData(MyEvent.TOPIC_TODO_UPDATE, String.valueOf(todo.getId())));
+        } else {
             todos.add(todo);
+            broker.post(MyEvent.TOPIC_TODO_NEW,
+                    createEventData(MyEvent.TOPIC_TODO_NEW, String.valueOf(todo.getId())));
         }
-        
-        // asynchronously
-//        String todoId = String.valueOf(todo.getId());
-//        broker.post(MyEvent.TOPIC_TODO_NEW, createEventData(MyEvent.TOPIC_TODO_NEW, todoId));
-        
         return true;
     }
 
@@ -76,6 +78,10 @@ public class DefaultTodoService implements TodoService {
 
         deleteTodo.ifPresent(todo -> {
             todos.remove(todo);
+
+            // configure the event
+            broker.post(MyEvent.TOPIC_TODO_DELETE,
+                    createEventData(MyEvent.TOPIC_TODO_DELETE, String.valueOf(todo.getId())));
         });
 
         return deleteTodo.isPresent();
@@ -103,7 +109,7 @@ public class DefaultTodoService implements TodoService {
     private Optional<Todo> findById(long id) {
         return getTodosInternal().stream().filter(t -> t.getId() == id).findAny();
     }
-    
+
     private Map<String, String> createEventData(String topic, String todoId) {
         Map<String, String> map = new HashMap<>();
         // in case the receiver wants to check the topic
