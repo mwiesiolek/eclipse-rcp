@@ -7,17 +7,22 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
+import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.e4.core.commands.ECommandService;
+import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
@@ -47,6 +52,12 @@ public class EditorPart {
     
     @Inject
     private TodoService service;
+    
+    @Inject
+    private ECommandService commandService;
+
+    @Inject
+    private EHandlerService handlerService;
     
     // pause dirty listener when new Todo selection is set
     private boolean pauseDirtyListener;
@@ -89,6 +100,17 @@ public class EditorPart {
         updateUserInterface(todo);
 
         GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(parent);
+        
+        // at the end of the creation of the UI
+        Button button = new Button(parent, SWT.PUSH);
+        button.setText("Save");
+        button.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                ParameterizedCommand command = commandService.createCommand("org.eclipse.ui.file.saveAll", null);
+                handlerService.executeHandler(command);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")

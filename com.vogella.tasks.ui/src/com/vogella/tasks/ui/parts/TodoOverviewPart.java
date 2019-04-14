@@ -1,13 +1,16 @@
 package com.vogella.tasks.ui.parts;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.list.WritableList;
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EMenuService;
@@ -48,6 +51,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
 import com.vogella.tasks.model.TodoService;
+import com.vogella.tasks.events.MyEvent;
 import com.vogella.tasks.model.Todo;
 
 public class TodoOverviewPart {
@@ -240,5 +244,18 @@ public class TodoOverviewPart {
 
         // register context menu on the table
         menuService.registerContextMenu(viewer.getControl(), "com.vogella.tasks.ui.popupmenu.table");
+    }
+    
+    @Inject
+    @Optional
+    private void subscribeTopicTodoAllTopics
+        (@UIEventTopic(MyEvent.TOPIC_TODO_ALLTOPICS) Map<String, String> event) {
+        if (viewer != null) {
+            // code if you use databinding for your viewer
+            writableList.clear();
+            todoService.getTodos(writableList::addAll);
+            // if you do not use databinding, use the following snippet:
+            // todoService.getTodos(viewer::setInput);
+        }
     }
 }

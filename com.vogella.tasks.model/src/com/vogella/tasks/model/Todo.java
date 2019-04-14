@@ -104,10 +104,6 @@ public class Todo {
         return "Todo [id=" + id + ", summary=" + summary + "]";
     }
 
-    public Todo copy() {
-        return new Todo(id, summary, description, done, getDueDate());
-    }
-
     public void addPropertyChangeListener(PropertyChangeListener l) {
         changes.addPropertyChangeListener(l);
     }
